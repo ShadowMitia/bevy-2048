@@ -1,0 +1,24 @@
+[package]
+name = "bevy-2048"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bevy = { git = "https://github.com/bevyengine/bevy.git", branch = "main", default_features = true, features = ["png"] }
+bevy_hanabi = "0.5.0"
+clap = "4.0.27"
+image = "0.24.5"
+rand = "0.8.5"
+serde = "1.0.147"
+tracing = "0.1.37"
+
+
+# Enable a small amount of optimization in debug mode
+[profile.dev]
+opt-level = 1
+
+# Enable high optimizations for dependencies (incl. Bevy), but not for our code:
+[profile.dev.package."*"]
+opt-level = 3
