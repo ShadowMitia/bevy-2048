@@ -20,7 +20,7 @@ pub struct Cell {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Default)]
 pub struct Array2D {
-    pub data: [u32; 16],
+    data: [u32; 16],
 }
 
 impl Array2D {
@@ -28,13 +28,17 @@ impl Array2D {
         Self { data: [0; 16] }
     }
 
+    pub fn new_from(f: &[u32; 16]) -> Self {
+        Self { data: *f }
+    }
+
     pub fn len(&self) -> usize {
         self.data.len()
     }
 
-  pub fn is_empty(&self) -> bool {
-    self.data.is_empty()
-  }
+    pub fn is_empty(&self) -> bool {
+        self.data.is_empty()
+    }
 }
 
 impl PartialEq<[u32; 16]> for Array2D {
@@ -327,7 +331,11 @@ pub fn update_game(
     }
 }
 
-pub fn input(input: Res<Input<KeyCode>>, mut grid: ResMut<Grid>, mut score: EventWriter<ScoreEvent>) {
+pub fn input(
+    input: Res<Input<KeyCode>>,
+    mut grid: ResMut<Grid>,
+    mut score: EventWriter<ScoreEvent>,
+) {
     let old_grid = *grid;
     let mut new_score = 0;
     if input.just_pressed(KeyCode::Left) {

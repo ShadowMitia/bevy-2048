@@ -1,13 +1,5 @@
-
-
-use std::{
-    convert::TryInto,
-    ops::{Index, IndexMut},
-};
-
 use bevy::prelude::*;
 use bevy_2048::*;
-use rand::{seq::SliceRandom, thread_rng};
 
 fn main() {
     App::new()
