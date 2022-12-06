@@ -2,6 +2,7 @@
 
 A simple 2048 made with [Bevy](https://bevyengine.org/)
 
+Based on https://framagames.org/2048originel/index.html
 
 # Demo
 
